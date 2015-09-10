@@ -26,7 +26,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="Python,并发编程," />
 
 
 
@@ -35,15 +35,26 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bing">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="#IO模式学习
+###问题引入
+这是我们通常所写的程序
+12345678910111213141516171819202122def normal():    for i in range(10):        print(i)        if __name__ == &apos;__main__&apos;:    print(&apos;begin&apos;)    normal()    print(&apos;end&apos;)#resu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IO模式学习">
+<meta property="og:url" content="http://yoursite.com/2015/09/10/IO模式学习/index.html">
 <meta property="og:site_name" content="Bing">
-<meta property="og:description">
+<meta property="og:description" content="#IO模式学习
+###问题引入
+这是我们通常所写的程序
+12345678910111213141516171819202122def normal():    for i in range(10):        print(i)        if __name__ == &apos;__main__&apos;:    print(&apos;begin&apos;)    normal()    print(&apos;end&apos;)#resu">
+<meta property="og:image" content="http://yoursite.com/uploads/blog_img/IO_study/IO_modal.jpg">
+<meta property="og:updated_time" content="2015-09-10T08:40:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bing">
-<meta name="twitter:description">
+<meta name="twitter:title" content="IO模式学习">
+<meta name="twitter:description" content="#IO模式学习
+###问题引入
+这是我们通常所写的程序
+12345678910111213141516171819202122def normal():    for i in range(10):        print(i)        if __name__ == &apos;__main__&apos;:    print(&apos;begin&apos;)    normal()    print(&apos;end&apos;)#resu">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -53,7 +64,7 @@
   };
 </script>
 
-  <title> Bing </title>
+  <title> IO模式学习 | Bing </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -71,9 +82,7 @@
 
 
 
-  <div class="container one-column 
-   page-home 
-">
+  <div class="container one-column page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -141,9 +150,9 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div id="content" class="content"> 
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
@@ -154,9 +163,7 @@
           
           
             
-              <a class="post-title-link" href="/2015/09/10/IO模式学习/" itemprop="url">
-                IO模式学习
-              </a>
+              IO模式学习
             
           
         </h1>
@@ -184,8 +191,7 @@
       
 
       
-        
-          <span itemprop="articleBody"><p>#IO模式学习</p>
+        <span itemprop="articleBody"><p>#IO模式学习</p>
 <p>###问题引入</p>
 <p>这是我们通常所写的程序</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">normal</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        print(i)</span><br><span class="line">        </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    print(<span class="string">'begin'</span>)</span><br><span class="line">    normal()</span><br><span class="line">    print(<span class="string">'end'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#result</span></span><br><span class="line">begin</span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">7</span></span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="number">9</span></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
@@ -238,118 +244,54 @@
 <p>参考文档：</p>
 <p><a href="http://my.oschina.net/u/1433482/blog/191211" target="_blank" rel="external">python模块介绍- select 等待I/0完成</a><br><a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001432090954004980bd351f2cd4cc18c9e6c06d855c498000" target="_blank" rel="external">asyncio</a></p>
 </span>
-        
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
+        <div class="post-tags">
           
+            <a href="/tags/Python/" rel="tag">#Python</a>
           
-            
-              <a class="post-title-link" href="/2015/09/04/MySQL优化概要/" itemprop="url">
-                MySQL优化概要
-              </a>
-            
+            <a href="/tags/并发编程/" rel="tag">#并发编程</a>
           
-        </h1>
+        </div>
       
 
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-09-04T11:18:30+08:00" content="2015-09-04">
-            2015-09-04
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/数据库/" itemprop="url" rel="index">
-                  <span itemprop="name">数据库</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>首先我们需要明确我们什么时候需要用到数据库：</p>
-<ol>
-<li>当缓存并不能解决你的问题，比如写操作，事务操作</li>
-<li>缓存的创建或过期需要通过数据库。</li>
-</ol>
-<p>其次，我们可能需要一个专业的工具来指导我们优化：<br><code>mysqlreport</code><br>这是作为一个Mysql第三方的状态报告工具，其实就是将一下两行命令所获得的数据以一种更加人性化的方法呈现到我们眼前：<br><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show status<span class="comment">;</span></span><br><span class="line">mysql&gt; show engine innodb status<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
-<p>你完全可以在自己电脑上先使用这个工具，这时候我们将逐条讲解工具为我们呈现的数据</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/04/MySQL优化概要/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
           </div>
-        
-      
-    </div>
 
-    <footer class="post-footer">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/09/04/MySQL优化概要/" rel="next">MySQL优化概要</a>
+            
+          </div>
+        </div>
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
  </div>
 
         
 
+        
+          <div class="comments" id="comments">
+            
+          </div>
         
       </div>
 
@@ -366,6 +308,15 @@
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
       
 
       <section class="site-overview">
@@ -413,6 +364,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
       
 
     </div>
@@ -482,6 +444,165 @@
   <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
 
   <script type="text/javascript">
     $(document).ready(function () {
