@@ -44,7 +44,7 @@
 <meta property="og:description" content="问题引入这是我们通常所写的程序
 12345678910111213141516171819202122def normal():    for i in range(10):        print(i)        if __name__ == &apos;__main__&apos;:    print(&apos;begin&apos;)    normal()    print(&apos;end&apos;)#resultbegin01234">
 <meta property="og:image" content="http://yoursite.com/uploads/blog_img/IO_study/IO_modal.jpg">
-<meta property="og:updated_time" content="2015-09-10T08:43:26.000Z">
+<meta property="og:updated_time" content="2015-09-11T05:36:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IO模式学习">
 <meta name="twitter:description" content="问题引入这是我们通常所写的程序
@@ -238,7 +238,7 @@
 <p>可以看出这里<code>select.select()</code>所选择的对象均是通道, 此时多个客户端可以同时进行通话，而不需要等待其他客户端。这里实验客户端可以使用<code>telnet</code>来进行操作</p>
 <h4 id="Python的异步IO">Python的异步IO</h4><p>Python 3.4标准库有一个新模块<code>asyncio</code>，用来支持异步I/O。</p>
 <p><code>asyncio</code>的编程模型就是一个消息循环。我们从<code>asyncio</code>模块中直接获取一个<code>EventLoop</code>的引用，然后把需要执行的协程扔到<code>EventLoop</code>中执行，就实现了异步IO。</p>
-<p>实例：<br>我们用asyncio的异步网络连接来获取sina、sohu和163的网站首页：</p>
+<p>实例：  </p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import threading</span><br><span class="line">import asyncio</span><br><span class="line"></span><br><span class="line">@asyncio<span class="class">.coroutine</span></span><br><span class="line">def <span class="function"><span class="title">hello</span><span class="params">()</span></span>:</span><br><span class="line">    <span class="function"><span class="title">print</span><span class="params">(<span class="string">'Hello world! (%s)'</span> % threading.currentThread()</span></span>)</span><br><span class="line">    yield from asyncio.<span class="function"><span class="title">sleep</span><span class="params">(<span class="number">1</span>)</span></span></span><br><span class="line">    <span class="function"><span class="title">print</span><span class="params">(<span class="string">'Hello again! (%s)'</span> % threading.currentThread()</span></span>)</span><br><span class="line"></span><br><span class="line">loop = asyncio.<span class="function"><span class="title">get_event_loop</span><span class="params">()</span></span></span><br><span class="line">tasks = [<span class="function"><span class="title">hello</span><span class="params">()</span></span>, <span class="function"><span class="title">hello</span><span class="params">()</span></span>]</span><br><span class="line">loop.<span class="function"><span class="title">run_until_complete</span><span class="params">(asyncio.wait(tasks)</span></span>)</span><br><span class="line">loop.<span class="function"><span class="title">close</span><span class="params">()</span></span></span><br><span class="line"></span><br><span class="line"><span class="id">#Result</span>:</span><br><span class="line">Hello world! (&lt;_MainThread(MainThread, started <span class="number">140735195337472</span>)&gt;)</span><br><span class="line">Hello world! (&lt;_MainThread(MainThread, started <span class="number">140735195337472</span>)&gt;)</span><br><span class="line">(暂停约<span class="number">1</span>秒)</span><br><span class="line">Hello again! (&lt;_MainThread(MainThread, started <span class="number">140735195337472</span>)&gt;)</span><br><span class="line">Hello again! (&lt;_MainThread(MainThread, started <span class="number">140735195337472</span>)&gt;)</span><br></pre></td></tr></table></figure>
 <p><code>@asyncio.coroutine</code>把一个<code>generator</code>标记为<code>coroutine</code>类型，然后，我们就把这个<code>coroutine</code>扔到<code>EventLoop</code>中执行。</p>
 <p><code>yield from</code>语法可以让我们方便地调用另一个<code>generator</code>。由于<code>asyncio.sleep()</code>也是一个<code>coroutine</code>，所以线程不会等待<code>asyncio.sleep()</code>，而是直接中断并执行下一个消息循环。当<code>asyncio.sleep()</code>返回时，线程就可以从<code>yield from</code>拿到返回值（此处是<code>None</code>），然后接着执行下一行语句。</p>
@@ -265,6 +265,8 @@
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/09/11/【转载】Python-中的进程、线程、协程、同步、异步、回调/" rel="prev">【转载】Python 中的进程、线程、协程、同步、异步、回调</a>
             
           </div>
 
@@ -332,7 +334,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
