@@ -48,7 +48,7 @@
 <meta property="og:image" content="http://yoursite.com/uploads/blog_img/test_result.jpg">
 <meta property="og:image" content="http://yoursite.com/uploads/blog_img/GIL_2cpu.png">
 <meta property="og:image" content="http://yoursite.com/uploads/blog_img/GIL_ioclose.png">
-<meta property="og:updated_time" content="2015-09-11T07:40:09.000Z">
+<meta property="og:updated_time" content="2015-09-11T07:47:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【转载】Python的GIL是什么鬼，多线程性能究竟如何">
 <meta name="twitter:description" content="&amp;gt;前言：博主在刚接触Python的时候时常听到GIL这个词，并且发现这个词经常和Python无法高效的实现多线程划上等号。本着不光要知其然，还要知其所以然的研究态度，博主搜集了各方面的资料，花了一周内几个小时的闲暇时间深入理解了下GIL，并归纳成此文，也希望读者能通过次本文更好且客观的理解GIL。
@@ -215,6 +215,7 @@
 <p>In CPython, the global interpreter lock, or GIL, is a mutex that prevents multiple native threads from executing Python bytecodes at once. This lock is necessary mainly because CPython’s memory management is not thread-safe. (However, since the GIL exists, other features have grown to depend on the guarantees that it enforces.)</p>
 </blockquote>
 <p>好吧，是不是看上去很糟糕？一个防止多线程并发执行机器码的一个Mutex，乍一看就是个BUG般存在的全局锁嘛！别急，我们下面慢慢的分析。</p>
+<a id="more"></a>
 <h2 id="为什么会有GIL">为什么会有GIL</h2><p>由于物理上得限制，各CPU厂商在核心频率上的比赛已经被多核所取代。为了更有效的利用多核处理器的性能，就出现了多线程的编程方式，而随之带来的就是线程间数据一致性和状态同步的困难。即使在CPU内部的Cache也不例外，为了有效解决多份缓存之间的数据同步时各厂商花费了不少心思，也不可避免的带来了一定的性能损失。</p>
 <p>Python当然也逃不开，为了利用多核，Python开始支持多线程。而解决多线程之间数据完整性和状态同步的最简单方法自然就是加锁。 于是有了GIL这把超级大锁，而当越来越多的代码库开发者接受了这种设定后，他们开始大量依赖这种特性（即默认python内部对象是thread-safe的，无需在实现时考虑额外的内存锁和同步操作）。</p>
 <p>慢慢的这种实现方式被发现是蛋疼且低效的。但当大家试图去拆分和去除GIL的时候，发现大量库代码开发者已经重度依赖GIL而非常难以去除了。有多难？做个类比，像MySQL这样的“小项目”为了把Buffer Pool Mutex这把大锁拆分成各个小锁也花了从5.5到5.6再到5.7多个大版为期近5年的时间，本且仍在继续。MySQL这个背后有公司支持且有固定开发团队的产品走的如此艰难，那又更何况Python这样核心开发和代码贡献者高度社区化的团队呢？</p>
