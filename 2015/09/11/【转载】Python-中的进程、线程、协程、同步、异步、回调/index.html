@@ -35,29 +35,17 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="Python 中的进程、线程、协程、同步、异步、回调  
-上下文切换技术
-简述在进一步之前，让我们先回顾一下各种上下文切换技术。
-不过首先说明一点术语。当我们说“上下文”的时候，指的是程序在执行中的一个状态。通常我们会用调用栈来表示这个状态——栈记载了每个调用层级执行到哪里，还有执行时的环境情况等所有有关的信息。
-当我们说“上下文切换”的时候，表达的是一种从一个上下文切换到另一个上下文执行的技术。">
+<meta name="description" content="Python 中的进程、线程、协程、同步、异步、回调">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【转载】Python 中的进程、线程、协程、同步、异步、回调">
 <meta property="og:url" content="http://yoursite.com/2015/09/11/【转载】Python-中的进程、线程、协程、同步、异步、回调/index.html">
 <meta property="og:site_name" content="Bing">
-<meta property="og:description" content="Python 中的进程、线程、协程、同步、异步、回调  
-上下文切换技术
-简述在进一步之前，让我们先回顾一下各种上下文切换技术。
-不过首先说明一点术语。当我们说“上下文”的时候，指的是程序在执行中的一个状态。通常我们会用调用栈来表示这个状态——栈记载了每个调用层级执行到哪里，还有执行时的环境情况等所有有关的信息。
-当我们说“上下文切换”的时候，表达的是一种从一个上下文切换到另一个上下文执行的技术。">
+<meta property="og:description" content="Python 中的进程、线程、协程、同步、异步、回调">
 <meta property="og:image" content="http://yoursite.com/process_status_transform.png">
-<meta property="og:updated_time" content="2015-09-11T05:36:36.000Z">
+<meta property="og:updated_time" content="2015-09-11T05:38:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【转载】Python 中的进程、线程、协程、同步、异步、回调">
-<meta name="twitter:description" content="Python 中的进程、线程、协程、同步、异步、回调  
-上下文切换技术
-简述在进一步之前，让我们先回顾一下各种上下文切换技术。
-不过首先说明一点术语。当我们说“上下文”的时候，指的是程序在执行中的一个状态。通常我们会用调用栈来表示这个状态——栈记载了每个调用层级执行到哪里，还有执行时的环境情况等所有有关的信息。
-当我们说“上下文切换”的时候，表达的是一种从一个上下文切换到另一个上下文执行的技术。">
+<meta name="twitter:description" content="Python 中的进程、线程、协程、同步、异步、回调">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -210,6 +198,7 @@
 
       
         <span itemprop="articleBody"><p><a href="http://segmentfault.com/a/1190000001813992" target="_blank" rel="external">Python 中的进程、线程、协程、同步、异步、回调</a>  </p>
+<a id="more"></a>
 <h2 id="上下文切换技术">上下文切换技术</h2><hr>
 <h4 id="简述">简述</h4><p>在进一步之前，让我们先回顾一下各种上下文切换技术。</p>
 <p>不过首先说明一点术语。当我们说“上下文”的时候，指的是程序在执行中的一个状态。通常我们会用调用栈来表示这个状态——栈记载了每个调用层级执行到哪里，还有执行时的环境情况等所有有关的信息。</p>
