@@ -43,8 +43,8 @@
 <meta property="og:site_name" content="Bing">
 <meta property="og:description" content="问题引入这是我们通常所写的程序
 12345678910111213141516171819202122def normal():    for i in range(10):        print(i)        if __name__ == &apos;__main__&apos;:    print(&apos;begin&apos;)    normal()    print(&apos;end&apos;)#resultbegin01234">
-<meta property="og:image" content="http://yoursite.com/uploads/blog_img/IO_study/IO_modal.jpg">
-<meta property="og:updated_time" content="2015-09-11T05:36:39.000Z">
+<meta property="og:image" content="http://yoursite.com/uploads/blog_img/IO_modal.jpg">
+<meta property="og:updated_time" content="2015-09-11T06:28:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IO模式学习">
 <meta name="twitter:description" content="问题引入这是我们通常所写的程序
@@ -216,7 +216,7 @@
 <li><strong>I/O多路复用：</strong>阻塞发生在select/poll的系统调用上，而不是阻塞在实际的I/O系统调用上。select/poll发现有数据就绪后，通过实际的I/O操作将数据复制到应用进程的缓冲区中。</li>
 <li><strong>异步I/O：</strong>应用进程通知内核开始一个异步I/O操作，并让内核在整个操作（包含将数据从内核复制到应该进程的缓冲区）完成后通知应用进程。</li>
 </ol>
-<p>如图所示：<br><img src="/uploads/blog_img/IO_study/IO_modal.jpg" alt="image"></p>
+<p>如图所示：<br><img src="/uploads/blog_img/IO_modal.jpg" alt="IO模式"></p>
 <p>从上面图中可以看出，该图把I/O操作分为两个阶段，第一阶段等待数据可用，第二阶段将数据从内核复制到用户空间。前三种模型的区别在于第一阶段（阻塞式I/O阻塞在I/O操作上，非阻塞式I/O轮询，I/O复用阻塞在select/poll或者epoll上），第二阶段都是一样的，即这里的阻塞不阻塞体现在第一阶段，从这方面来说I/O复用类型也可以归类到阻塞式I/O，它与阻塞式I/O的区别在于阻塞的系统调用不同。而异步I/O的两个阶段都不会阻塞进程。</p>
 <p>可以看出，I/O模式中1，2，3都属于同步IO的操作，因为其在等待数据的时候都有I/O操作完成之前都会被阻塞。而只有4属于异步IO操作(AIO)。</p>
 <p>在Linux下有两种称为AIO的的接口。一个是由glibc提供，是由多线程来模拟：数据等待和数据复制的工作，由glibc创建线程来完成。数据复制完成后，执行I/O操作的线程通过回调函数的方式通知应用线程（严格来讲，这种方式不能算真正的AIO，因为用来执行实际I/O操作的线程还是阻塞在I/O操作上，只不过从应用进程的角度来看是异步方式的）。另一种是由内核提供的Kernel AIO，可以做到真正的内核异步通知（这种方式对读写方式，写入大小及偏移都有严格的要求），并且不支持网络I/O，其实现原理本质上与下面要介绍的IOCP类似。</p>
