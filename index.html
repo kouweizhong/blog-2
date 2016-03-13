@@ -172,6 +172,87 @@
           
           
             
+              <a class="post-title-link" href="/2016/03/13/Redis与消息队列/" itemprop="url">
+                Redis与消息队列
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-03-13T19:31:00+08:00" content="2016-03-13">
+            2016-03-13
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/数据库/" itemprop="url" rel="index">
+                  <span itemprop="name">数据库</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h2 id="背景知识">背景知识</h2><h3 id="Pub/Sub">Pub/Sub</h3><p>Redis中使用<a href="http://redis.io/commands/subscribe">SUBSCRIBE</a>, <a href="http://redis.io/commands/unsubscribe">UNSUBSCRIBE</a> 和 <a href="http://redis.io/commands/publish">PUBLISH</a> 方法将可以实现生产者/消费者模式，所谓的生产者其实就是使用<code>PUBLISH</code>将message(这里需要说明，message只能是String，不过我们可以序列化一个对象为Json再进行推送)推送到指定的队列中，再由<code>SUBSCRIBE</code>监听到消息并取出。<code>UNSUBSCRIBE</code>是取消监听。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/03/13/Redis与消息队列/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/03/06/定时任务实践（Python向）/" itemprop="url">
                 定时任务实践（Python向）
               </a>
@@ -627,7 +708,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -641,7 +722,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
