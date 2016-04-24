@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="Python,Tornado,安全," />
+  <meta name="keywords" content="初学Kafka," />
 
 
 
@@ -37,16 +37,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="跨站请求伪造（英语：Cross-site request forgery），也被称为 one-click attack 或者 session riding，通常缩写为 CSRF 或者 XSRF， 是一种挟制用户在当前已登录的Web应用程序上执行非本意的操作的攻击方法。">
+<meta name="description" content="系统环境">
 <meta property="og:type" content="article">
-<meta property="og:title" content="csrf(xsrf)原理与应对策略">
-<meta property="og:url" content="http://yoursite.com/2016/03/20/csrf-xsrf-原理与应对策略/index.html">
+<meta property="og:title" content="初学Kafka——Kafka配置">
+<meta property="og:url" content="http://yoursite.com/2016/04/24/初学Kafka——Kafka配置/index.html">
 <meta property="og:site_name" content="Bing的村子">
-<meta property="og:description" content="跨站请求伪造（英语：Cross-site request forgery），也被称为 one-click attack 或者 session riding，通常缩写为 CSRF 或者 XSRF， 是一种挟制用户在当前已登录的Web应用程序上执行非本意的操作的攻击方法。">
-<meta property="og:updated_time" content="2016-03-20T09:46:26.000Z">
+<meta property="og:description" content="系统环境">
+<meta property="og:updated_time" content="2016-04-24T15:42:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="csrf(xsrf)原理与应对策略">
-<meta name="twitter:description" content="跨站请求伪造（英语：Cross-site request forgery），也被称为 one-click attack 或者 session riding，通常缩写为 CSRF 或者 XSRF， 是一种挟制用户在当前已登录的Web应用程序上执行非本意的操作的攻击方法。">
+<meta name="twitter:title" content="初学Kafka——Kafka配置">
+<meta name="twitter:description" content="系统环境">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -56,7 +56,7 @@
   };
 </script>
 
-  <title> csrf(xsrf)原理与应对策略 | Bing的村子 </title>
+  <title> 初学Kafka——Kafka配置 | Bing的村子 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -171,7 +171,7 @@
           
           
             
-              csrf(xsrf)原理与应对策略
+              初学Kafka——Kafka配置
             
           
         </h1>
@@ -180,8 +180,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-03-20T17:44:48+08:00" content="2016-03-20">
-            2016-03-20
+          <time itemprop="dateCreated" datetime="2016-04-24T23:32:03+08:00" content="2016-04-24">
+            2016-04-24
           </time>
         </span>
 
@@ -190,8 +190,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/安全/" itemprop="url" rel="index">
-                  <span itemprop="name">安全</span>
+                <a href="/categories/Kafka/" itemprop="url" rel="index">
+                  <span itemprop="name">Kafka</span>
                 </a>
               </span>
 
@@ -214,30 +214,7 @@
       
 
       
-        <span itemprop="articleBody"><blockquote>
-<p> <strong>跨站请求伪造</strong>（英语：Cross-site request forgery），也被称为 <strong>one-click attack</strong> 或者 <strong>session riding</strong>，通常缩写为 <strong>CSRF</strong> 或者 <strong>XSRF</strong>， 是一种挟制用户在当前已登录的Web应用程序上执行非本意的操作的攻击方法。</p>
-</blockquote>
-<a id="more"></a>
-<h2 id="进攻方式">进攻方式</h2><p>攻击者通过一些技术手段欺骗用户的浏览器去访问一个自己曾经认证过(携带Session)的网站并执行一些操作（如发邮件，发消息，甚至财产操作如转账和购买商品）。由于浏览器曾经认证过，所以被访问的网站会认为是真正的用户操作而去执行。这利用了web中用户身份验证的一个漏洞：<strong>简单的身份验证只能保证请求发自某个用户的浏览器，却不能保证请求本身是用户自愿发出的</strong>。</p>
-<h2 id="防御措施">防御措施</h2><ol>
-<li><p>验证码</p>
-</li>
-<li><p>检查Referer</p>
-<p>一般向<code>www.xxx.com</code>发送请求的referer也是<code>www.xxx.com</code>，而如果是CSRF攻击传来的请求，Referer字段会是包含恶意网址的地址，不会位于<code>www.xxx.com</code>之下，这时候服务器就能识别出恶意的访问。</p>
-</li>
-<li><p>Token</p>
-<p>由于CSRF的本质在于攻击者欺骗用户去访问自己设置的地址，所以如果要求在访问敏感数据请求时，要求用户浏览器提供不保存在cookie中，并且攻击者无法伪造的数据作为校验，那么攻击者就无法再执行CSRF攻击。这种数据通常是表单中的一个数据项。服务器将其生成并附加在表单中，其内容是一个伪乱数。当客户端通过表单提交请求时，这个伪乱数也一并提交上去以供校验。正常的访问时，客户端浏览器能够正确得到并传回这个伪乱数，而通过CSRF传来的欺骗性攻击中，攻击者无从事先得知这个伪乱数的值，服务器端就会因为校验token的值为空或者错误，拒绝这个可疑请求。</p>
-</li>
-</ol>
-<h2 id="Tornado中的做法">Tornado中的做法</h2><p>在Application的settings中添加</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"cookie_secret"</span>: <span class="string">"xxxxxxxxxxxxx"</span>`</span><br><span class="line"><span class="string">"xsrf_cookies"</span>: <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
-<p>就会自动在非<code>get, head, option</code>请求中检查<code>_xsrf</code>参数是否存在且是否正确</p>
-<p>而这个参数是通过以下函数产生的</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_get_raw_xsrf_token</span><span class="params">(self)</span>:</span></span><br><span class="line">    <span class="string">"""Read or generate the xsrf token in its raw form.</span><br><span class="line">    """</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> hasattr(self, <span class="string">'_raw_xsrf_token'</span>):</span><br><span class="line">        cookie = self.get_cookie(<span class="string">"_xsrf"</span>)</span><br><span class="line">        <span class="keyword">if</span> cookie:</span><br><span class="line">            version, token, timestamp = self._decode_xsrf_token(cookie)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            version, token, timestamp = <span class="keyword">None</span>, <span class="keyword">None</span>, <span class="keyword">None</span></span><br><span class="line">        <span class="keyword">if</span> token <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            version = <span class="keyword">None</span></span><br><span class="line">            token = os.urandom(<span class="number">16</span>)</span><br><span class="line">            timestamp = time.time()</span><br><span class="line">        self._raw_xsrf_token = (version, token, timestamp)</span><br><span class="line">    <span class="keyword">return</span> self._raw_xsrf_token</span><br></pre></td></tr></table></figure>
-<p>然后在<code>finish</code>的时候回触发<code>check_xsrf_cookie</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">check_xsrf_cookie</span><span class="params">(self)</span>:</span></span><br><span class="line">    token = (self.get_argument(<span class="string">"_xsrf"</span>, <span class="keyword">None</span>) <span class="keyword">or</span></span><br><span class="line">             self.request.headers.get(<span class="string">"X-Xsrftoken"</span>) <span class="keyword">or</span></span><br><span class="line">             self.request.headers.get(<span class="string">"X-Csrftoken"</span>))</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> token:</span><br><span class="line">        <span class="keyword">raise</span> HTTPError(<span class="number">403</span>, <span class="string">"'_xsrf' argument missing from POST"</span>)</span><br><span class="line">    _, token, _ = self._decode_xsrf_token(token)</span><br><span class="line">    _, expected_token, _ = self._get_raw_xsrf_token()</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> _time_independent_equals(utf8(token), utf8(expected_token)):</span><br><span class="line">        <span class="keyword">raise</span> HTTPError(<span class="number">403</span>, <span class="string">"XSRF cookie does not match POST argument"</span>)</span><br></pre></td></tr></table></figure>
-<p>这有什么用呢，之前我一直想写一个单元测试，这也是为了写单元测试，发送请求时候绕开xsrf时候所写的，通过伪造一个相同的函数就可以绕开了。</p>
-</span>
+        <span itemprop="articleBody"><h3 id="系统环境">系统环境</h3></span>
       
     </div>
 
@@ -245,11 +222,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Python/" rel="tag">#Python</a>
-          
-            <a href="/tags/Tornado/" rel="tag">#Tornado</a>
-          
-            <a href="/tags/安全/" rel="tag">#安全</a>
+            <a href="/tags/初学Kafka/" rel="tag">#初学Kafka</a>
           
         </div>
       
@@ -258,13 +231,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/04/22/Tornado源码阅读之后/" rel="prev">Tornado源码阅读之后</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/13/Redis与消息队列/" rel="next">Redis与消息队列</a>
+              <a href="/2016/04/22/Tornado源码阅读之后/" rel="next">Tornado源码阅读之后</a>
             
           </div>
         </div>
@@ -368,7 +339,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#进攻方式"><span class="nav-number">1.</span> <span class="nav-text">进攻方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#防御措施"><span class="nav-number">2.</span> <span class="nav-text">防御措施</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tornado中的做法"><span class="nav-number">3.</span> <span class="nav-text">Tornado中的做法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#系统环境"><span class="nav-number">1.</span> <span class="nav-text">系统环境</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
