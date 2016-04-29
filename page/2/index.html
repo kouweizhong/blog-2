@@ -182,6 +182,94 @@
           
           
             
+              <a class="post-title-link" href="/2016/03/13/Redis与消息队列/" itemprop="url">
+                Redis与消息队列
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-03-13T19:31:00+08:00" content="2016-03-13">
+            2016-03-13
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/数据库/" itemprop="url" rel="index">
+                  <span itemprop="name">数据库</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/03/13/Redis与消息队列/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/13/Redis与消息队列/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h2 id="背景知识">背景知识</h2><h3 id="Pub/Sub">Pub/Sub</h3><p>Redis中使用<a href="http://redis.io/commands/subscribe">SUBSCRIBE</a>, <a href="http://redis.io/commands/unsubscribe">UNSUBSCRIBE</a> 和 <a href="http://redis.io/commands/publish">PUBLISH</a> 方法将可以实现生产者/消费者模式，所谓的生产者其实就是使用<code>PUBLISH</code>将message(这里需要说明，message只能是String，不过我们可以序列化一个对象为Json再进行推送)推送到指定的队列中，再由<code>SUBSCRIBE</code>监听到消息并取出。<code>UNSUBSCRIBE</code>是取消监听。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/03/13/Redis与消息队列/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2016/03/06/定时任务实践（Python向）/" itemprop="url">
                 定时任务实践（Python向）
               </a>
@@ -544,105 +632,11 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/09/04/MySQL优化概要/" itemprop="url">
-                MySQL优化概要
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-09-04T11:18:30+08:00" content="2015-09-04">
-            2015-09-04
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/数据库/" itemprop="url" rel="index">
-                  <span itemprop="name">数据库</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/09/04/MySQL优化概要/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/04/MySQL优化概要/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>首先我们需要明确我们什么时候需要用到数据库：</p>
-<ol>
-<li>当缓存并不能解决你的问题，比如写操作，事务操作</li>
-<li>缓存的创建或过期需要通过数据库。</li>
-</ol>
-<p>其次，我们可能需要一个专业的工具来指导我们优化：<br><code>mysqlreport</code><br>这是作为一个Mysql第三方的状态报告工具，其实就是将一下两行命令所获得的数据以一种更加人性化的方法呈现到我们眼前：<br><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show status<span class="comment">;</span></span><br><span class="line">mysql&gt; show engine innodb status<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
-<p>你完全可以在自己电脑上先使用这个工具，这时候我们将逐条讲解工具为我们呈现的数据</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/04/MySQL优化概要/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/">&laquo;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">&laquo;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">&raquo;</a>
   </nav>
 
  </div>
@@ -676,21 +670,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
