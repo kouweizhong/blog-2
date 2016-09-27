@@ -2,9 +2,13 @@
 
 地址：[博客项目(issues)](https://github.com/BingLau7/blog/issues)
 
-已有文章：
+已有文章(时间排序)：
 
-2016年10月转入文章：
+2016年9月：
+
+[OpenResty初学](https://github.com/BingLau7/blog/issues/12)
+
+2016年9月前转入文章：
 
 [定时任务实践（Python向）](https://github.com/BingLau7/blog/issues/11)
 
