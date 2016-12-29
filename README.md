@@ -8,6 +8,18 @@
 
 [OpenResty初学](https://github.com/BingLau7/blog/issues/12)
 
+2016年10月：
+
+[HashMap源码解析](https://github.com/BingLau7/blog/issues/13)
+
+[ConcurrentHashMap](https://github.com/BingLau7/blog/issues/14)
+
+[LinkedHashMap](https://github.com/BingLau7/blog/issues/15)
+
+2016年12月：
+
+[yield与yield from备忘录](https://github.com/BingLau7/blog/issues/16)
+
 2016年9月前转入文章：
 
 [定时任务实践（Python向）](https://github.com/BingLau7/blog/issues/11)
