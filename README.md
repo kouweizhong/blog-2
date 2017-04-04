@@ -4,6 +4,10 @@
 
 已有文章(时间排序)：
 
+2017年4月：
+
+[Python内存管理机制——内存模型](https://github.com/BingLau7/blog/issues/18)
+
 2017年3月：
 
 [浅谈动态规划](https://github.com/BingLau7/blog/issues/17)
