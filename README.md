@@ -6,6 +6,7 @@
 
 2017年4月：
 
+[Python整型对象创建](https://github.com/BingLau7/blog/issues/19)
 [Python内存管理机制——内存模型](https://github.com/BingLau7/blog/issues/18)
 
 2017年3月：
