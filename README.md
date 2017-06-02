@@ -51,16 +51,16 @@
 
 [初学Kafka——Kafka配置](https://github.com/BingLau7/blog/issues/8)
 
-[初学Kafka——Kafka实例及其讲解](https://github.com/BingLau7/blog/issues/8)
+[初学Kafka——Kafka实例及其讲解](https://github.com/BingLau7/blog/issues/7)
 
-[csrf(xsrf)原理与应对策略](https://github.com/BingLau7/blog/issues/8)
+[csrf(xsrf)原理与应对策略](https://github.com/BingLau7/blog/issues/6)
 
-[apache 的 ab 工具简单介绍](https://github.com/BingLau7/blog/issues/8)
+[apache 的 ab 工具简单介绍](https://github.com/BingLau7/blog/issues/5)
 
-[Tornado源码阅读之后](https://github.com/BingLau7/blog/issues/8)
+[Tornado源码阅读之后](https://github.com/BingLau7/blog/issues/4)
 
-[Redis与消息队列](https://github.com/BingLau7/blog/issues/8)
+[Redis与消息队列](https://github.com/BingLau7/blog/issues/3)
 
-[MySQL优化概要](https://github.com/BingLau7/blog/issues/8)
+[MySQL优化概要](https://github.com/BingLau7/blog/issues/2)
 
-[IO模式学习](https://github.com/BingLau7/blog/issues/8)
+[IO模式学习](https://github.com/BingLau7/blog/issues/1)
