@@ -6,6 +6,8 @@
 
 2017年9月：
 
+[Akka 基础功能](https://github.com/BingLau7/blog/issues/25)
+
 [并发的姿势](https://github.com/BingLau7/blog/issues/24)
 
 
